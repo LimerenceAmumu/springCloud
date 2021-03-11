@@ -1,17 +1,17 @@
 package com.lhp.springcloud;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author Amumu
- * @create 2021/3/1 21:18
+ * @create 2021/3/11 20:12
  */
 @SpringBootApplication
-@MapperScan("com.lhp.springcloud.dao")
-public class PaymentApplication {
+@EnableDiscoveryClient
+public class Payment8006Application {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentApplication.class,args);
+        SpringApplication.run(Payment8006Application.class,args);
     }
 }

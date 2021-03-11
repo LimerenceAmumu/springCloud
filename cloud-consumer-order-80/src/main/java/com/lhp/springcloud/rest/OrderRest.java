@@ -14,17 +14,17 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/consumer/order")
 public class OrderRest {
-    public static final String PROVIDER_PAYMENT="http://127.0.0.1:8001/payment";
+    public static final String PROVIDER_PAYMENT="http://CLOUD-PROVIDER-PAYMENT";
     @Resource
     RestTemplate restTemplate;
     @RequestMapping("/add")
     public CommonResult add(@RequestBody Payment payment){
-        return restTemplate.postForObject(PROVIDER_PAYMENT+"/add",payment,CommonResult.class);
+        return restTemplate.postForObject(PROVIDER_PAYMENT+"/payment/add",payment,CommonResult.class);
     }
 
-    @RequestMapping("/get/{id}")
-    public CommonResult add(@PathVariable Long id){
-        return restTemplate.getForObject(PROVIDER_PAYMENT+"/get/"+id,CommonResult.class);
+    @RequestMapping("/get/{id}")//CLOUD-PROVIDER-PAYMENT
+    public CommonResult get(@PathVariable Long id){
+        return restTemplate.getForObject(PROVIDER_PAYMENT+"/payment/get/"+id,CommonResult.class);
 
     }
 

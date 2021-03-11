@@ -2,16 +2,16 @@ package com.lhp.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author Amumu
- * @create 2021/3/3 19:41
+ * @create 2021/3/11 20:30
  */
 @SpringBootApplication
-@EnableEurekaClient
-public class OrderApplication {
+@EnableDiscoveryClient
+public class OrderConsulApplication8005 {
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class,args);
+        SpringApplication.run(OrderConsulApplication8005.class,args);
     }
 }
