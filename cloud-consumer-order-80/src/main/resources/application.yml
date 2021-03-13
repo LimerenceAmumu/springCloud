@@ -6,6 +6,9 @@ spring:
   application:
     name: cloud-consumer-order
 eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: order80
   client:
     register-with-eureka: true
     # 集群必须设置为 true 单点无所谓 否则无法使用ribbon负载均衡
@@ -13,7 +16,4 @@ eureka:
     service-url:
     #  defaultZone: http://localhost:7001/eureka  http://eureka7002.com:7002/eureka/
        defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
- instance:
-   instance-id: order80
-   # 鼠标悬停显示 IP地址
-   prefer-ip-address: true
+
