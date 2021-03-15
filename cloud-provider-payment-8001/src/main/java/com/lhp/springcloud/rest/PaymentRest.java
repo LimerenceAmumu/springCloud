@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Amumu
@@ -48,5 +49,19 @@ public class PaymentRest {
             System.out.println("instance.getPort() = " + instance.getPort());
         }
         return new CommonResult(200,"success",discoveryClient);
+    }
+    @RequestMapping("/feign")
+    public CommonResult feign(){
+        return new CommonResult(200,"success",port);
+    }
+
+    @RequestMapping("/feignLongTime")
+    public CommonResult feignLongTime(){
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new CommonResult(200,"success",port);
     }
 }

@@ -16,6 +16,7 @@
         <module>cloud-provider-payment-8002</module>
         <module>cloud-provider-payment-consul-8006</module>
         <module>cloud-consumer-order-consul-8005</module>
+        <module>cloud-consumer-order-openfeign-80</module>
     </modules>
     <name>springcloud</name>
 
