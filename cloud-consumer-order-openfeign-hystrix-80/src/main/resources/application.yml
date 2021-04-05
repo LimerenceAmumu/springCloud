@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: cloud-consumer-openfeign-order
+    name: cloud-consumer-openfeign-hystrix-order
 eureka:
   instance:
     prefer-ip-address: true
@@ -22,6 +22,9 @@ ribbon:
   #指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
 
+feign:
+  hystrix:
+    enabled: true
 logging:
   level:
     # 以什么级别监控哪个 接口
