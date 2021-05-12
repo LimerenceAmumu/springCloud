@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class MainConfig {
     @Bean
-    //@LoadBalanced  为了测试自己的LB 而注释
+    @LoadBalanced  //为了测试自己的LB 而注释
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }

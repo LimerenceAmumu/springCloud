@@ -1,0 +1,42 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: payment01  # 路由ID 可以任意 但不可重复
+          uri: lb://cloud-provider-payment  # 匹配成功后 要转发到的地址
+          predicates:
+            - Path=/payment/get/**  #  断言，判断条件
+        - id: payment02
+          uri: lb://cloud-provider-payment
+          predicates:
+            - Path=/payment/discoveryClientInfo
+        - id: baidu
+          uri: http://news.baidu.com/guoji
+          predicates:
+            - Path=/guonei
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapperLocations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: gateway9527

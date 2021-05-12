@@ -1,0 +1,36 @@
+server:
+  port: 8008
+spring:
+  application:
+    name: cloud-stream-procider
+  cloud:
+    stream:
+      binders:
+        myDefaultRabbit:
+            type: rabbit
+            environment:
+              spring:
+                rabbitmq:
+                  host: localhost
+                  port: 5672
+                  username: guest
+                  password: guest
+      bindings:
+        output:
+          destination: myExchange
+          content-type: application/json
+          binder: myDefaultRabbit
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #  defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+  instance:
+    # 在Eureka中的实例名 不设置则为 localhost:cloud-provider-payment:8001
+    instance-id: stream8008
+    # 显示IP
+    prefer-ip-address: true
+

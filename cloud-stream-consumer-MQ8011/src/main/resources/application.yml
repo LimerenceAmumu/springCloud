@@ -1,0 +1,37 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders:
+        myDefaultRabbit:
+            type: rabbit
+            environment:
+              spring:
+                rabbitmq:
+                  host: localhost
+                  port: 5672
+                  username: guest
+                  password: guest
+      bindings:
+        input: # 唯一和生产者不一样的配置
+          destination: myExchange
+          content-type: application/json
+          binder: myDefaultRabbit
+          group: mygroup
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #  defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+  instance:
+    # 在Eureka中的实例名 不设置则为 localhost:cloud-provider-payment:8001
+    instance-id: stream8011
+    # 显示IP
+    prefer-ip-address: true
+
