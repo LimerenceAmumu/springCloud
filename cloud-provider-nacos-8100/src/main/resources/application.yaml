@@ -1,0 +1,15 @@
+#spring:
+#  profiles:
+#    active: dev
+#  cloud:
+#    nacos:
+#      server-addr: 122.51.174.150:8848
+#      config:
+#        file-extension: yaml
+
+
+server:
+  port: 8100
+
+
+# 配置文件加载顺序   bootstrap.properties  > 配置中心 > application.yaml

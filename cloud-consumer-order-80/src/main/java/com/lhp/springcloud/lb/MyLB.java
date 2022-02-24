@@ -33,6 +33,7 @@ public class MyLB implements LoadBalancer {
             current = atomicInteger.get();
             System.out.println("current = " + current);
             next = current >= Integer.MAX_VALUE ? 0 : current + 1;
+            // 设置新的值成功才会跳出循环
         } while (!atomicInteger.compareAndSet(current, next));
         System.out.println("next = " + next);
         return next;

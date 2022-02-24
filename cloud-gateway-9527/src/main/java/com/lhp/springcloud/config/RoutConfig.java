@@ -16,6 +16,7 @@ public class RoutConfig {
     public RouteLocator customerRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
         RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
         routes
+                //创建一个路由
                 .route("baiduRoute", s -> s.path("/baidu").uri("http://news.baidu.com/")
                 ).build();
         return routes.build();
