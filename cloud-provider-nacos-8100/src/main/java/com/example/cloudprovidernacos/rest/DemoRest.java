@@ -15,10 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoRest {
 
     @Value("${lhp.name}")
-    private String useLocalCache;
+    private String name;
 
     @RequestMapping("/get")
     public String get() {
-        return useLocalCache;
+        return name;
+    }
+
+
+    @Value("${lhp.name_aa}")
+    private String name_aa;
+
+    @RequestMapping("/get_name_aa")
+    public String get_name_aa() {
+        return name_aa;
     }
 }
