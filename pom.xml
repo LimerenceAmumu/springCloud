@@ -25,6 +25,8 @@
         <module>cloud-stream-consumer-MQ8010</module>
         <module>cloud-stream-consumer-MQ8010</module>
         <module>cloud-sentinel-11000</module>
+
+        <module>cloud-provider-nacos-8100</module>
     </modules>
     <name>springcloud</name>
 
